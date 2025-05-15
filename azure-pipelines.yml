@@ -10,22 +10,21 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: echo Hello, world!
-  displayName: 'Run a one-line script'
-
-- script: |
-    echo Add other tasks to build, test, and deploy your project.
-    echo See https://aka.ms/yaml
-  displayName: 'Run a multi-line script'
-
 - task: FlutterInstall@0
+  displayName: 'Install Flutter SDK'
   inputs:
     mode: 'auto'
     channel: 'stable'
     version: 'latest'
 
 - task: FlutterCommand@0
+  displayName: 'Run Flutter Doctor'
   inputs:
     projectDirectory: '.'
     arguments: 'doctor -v'
 
+- task: FlutterCommand@0
+  displayName: 'Run Flutter Pub Get'
+  inputs:
+    projectDirectory: '.'
+    arguments: 'pub get'
