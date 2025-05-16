@@ -7,7 +7,7 @@ trigger:
 - master
 
 pool:
-  name: LocalPool
+  name: TMAPool
 
 steps:
 - task: FlutterInstall@0
