@@ -28,3 +28,10 @@ steps:
   inputs:
     projectDirectory: '.'
     arguments: 'pub get'
+
+- task: FlutterBuild@0
+  inputs:
+    target: 'aab'
+    projectDirectory: '.'
+    buildNumber: '16052025'
+    buildName: '0.0.1'
