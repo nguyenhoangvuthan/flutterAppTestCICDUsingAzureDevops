@@ -35,3 +35,13 @@ steps:
     projectDirectory: '.'
     buildNumber: '16052025'
     buildName: '0.0.1'
+
+- task: CopyFiles@2
+  inputs:
+    contents: '**/app-release.aab'
+    targetFolder: '$(Build.ArtifactStagingDirectory)'
+
+- task: PublishBuildArtifacts@1
+  inputs:
+    pathToPublish: '$(Build.ArtifactStagingDirectory)'
+    artifactName: Android
